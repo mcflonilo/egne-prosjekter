@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velg kinofilm</title>
+    <!--
+        switch case for å skrive ut informasjon om valgt film
+        switch( betingelse ){
+            case "a":
+                //gjør noe
+            break;
+            case "b":
+                //gjør noe
+            break;
+        }
+    -->
+</head>
+<body>
+
+    
+    <h3>Hvilken kinofilm vil du se?</h3>
+
+    <select id="movie-select">
+        <option value="1">Black Adam 2D</option>
+        <option value="2">Smile</option>
+        <option value="3">Bros</option>
+        <option value="4">Krigsseileren</option>
+        <option value="5">Den vesle vampyren</option>
+    </select>
+    
+    <input id="set-movie-btn" type="button" value="Velg film">
+    
+    <div id="output-div"></div>
+
+    <script>
+        var moviearray = [
+            {title: "black adam", price: "10$", dimensions:"2d"},
+            {title: "smile", price: "8$", dimensions:"2d"},
+            {title: "bros", price: "15$", dimensions:"1d"},
+            {title: "krigsseileren", price: "1$", dimensions:"4d"},
+            {title: "den vesle vampyren", price: "6$", dimensions:"3d"},
+
+            ]
+        var movieSelect = document.getElementById("movie-select");
+        var setMovieBtn = document.getElementById("set-movie-btn");
+        var outputDiv = document.getElementById("output-div");
+        
+        function showmovie(){
+            var htmltxt = ""
+            var title, price, dimensions
+            var chosentitle = parseInt(movieSelect.value)-1
+            htmltxt = "<h1>"+moviearray[chosentitle].title+"</h1> <br><p>pris: "+moviearray[chosentitle].price+"</p> <br> <p>format:"+moviearray[chosentitle].dimensions+" </p>"
+            outputDiv.innerHTML = htmltxt
+        }
+        setMovieBtn.onclick = showmovie
+
+    </script>
+    
+</body>
+</html>

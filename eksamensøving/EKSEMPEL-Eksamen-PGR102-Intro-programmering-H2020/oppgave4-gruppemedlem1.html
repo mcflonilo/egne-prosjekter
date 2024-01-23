@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Navn på valgt oppgave; ref. alternativene i eksamensoppgavene</title>
+</head>
+<body>
+	
+	vare: <input id="input" type="text">
+	<ul id="list"></ul>
+	<button id="add">add item</button>
+
+</body>
+<script>
+	var inn = document.getElementById("input")
+	var list = document.getElementById("list")
+	var add = document.getElementById("add")
+	var arraylist = []
+	function addItem(){
+		string = inn.value
+		console.log(string)
+		if(validateAnswer(inn.value)===false){
+			return
+		}
+		arraylist.push({name:inn.value,button:"<button id="+inn.value+">"+inn.value+"</button>"})
+		list.innerHTML +="<li><button id="+inn.value+">"+inn.value+"</button></li>"
+		document.getElementById(inn.value).addEventListener("click", removeSelf)
+	}
+	
+	function validateAnswer(test){
+		for (let i = 0; i < arraylist.length; i++) {
+			if(arraylist[i].name == test){
+				alert("du har allerede dette på listen din")
+				return false
+			}
+		}
+		if (test.length===0){
+			alert("skriv en vare")
+			return false
+		}
+		return true
+	}
+
+	function removeSelf(){
+		list.innerHTML = ""
+		for (let i = 0; i < arraylist.length; i++) {
+			if(arraylist[i].name == this.id){
+				arraylist.splice(i,1)
+				for (let i = 0; i < arraylist.length; i++) {
+					list.innerHTML +="<li>"+arraylist[i].button+"</li>"
+					document.getElementById(arraylist[i].name).addEventListener("click", removeSelf)
+				}
+			} 
+		}
+		
+
+	}
+
+	add.onclick = addItem
+
+
+</script>
+</html>

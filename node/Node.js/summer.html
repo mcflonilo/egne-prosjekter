@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        #wrapper{position:relative;}
+        #d1{position:absolute 0; left:0; z-index:1; }
+        #c1{width:310px; height:300px; border:1px solid #d3d3d3;}
+        #h1{position:absolute; top:140px; left:140px; z-index:2; }
+        canvas{
+            position: absolute;
+            color: black;
+        }
+        </style>
+<head>
+    
+    <title>Matrix digital rain test</title>
+    <div id="wrapper" style='position:relative'>
+
+        <form id='h1';>
+          
+          <input id ="input" type="int"><hr>
+
+ 
+ <button type="button" onclick = "Translate()"> translate</button>
+ <p id = "result"></p>
+        </form> 
+    
+        <div id='d1'>
+            <canvas id="Matrix"></canvas>
+            
+          
+        </div>
+    
+      </div>
+   
+ 
+</head>
+<body>
+   <script>
+   var result = "";
+    function makestring(value){
+            result = result+value;
+        }
+    
+    function Translate(){
+    
+    var binary = [];
+    var number = document.getElementById("input").value;
+    var quotient;
+    var remainder; 
+
+    for (;number >= 1;){
+     quotient = Math.floor(number/2);
+     remainder = number % 2;
+     number= Math.floor(number/2);
+     console.log(number);
+
+        if(remainder == 1){
+            binary.push("1")
+            console.log(binary);
+        }
+        else {
+        binary.push("0")
+        console.log(binary);
+        }
+        }
+        binary.reverse();
+        binary.forEach(makestring);
+        console.log(binary.length);
+        document.getElementById("result").innerHTML = result;
+        binary = [];
+        result = "";
+    }
+
+    const canvas = document.getElementById('Matrix');
+const context = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const nums = '0123456789';
+
+const alphabet = katakana + latin + nums;
+
+const fontSize = 16;
+const columns = canvas.width/fontSize;
+
+const rainDrops = [];
+
+for( let x = 0; x < columns; x++ ) {
+	rainDrops[x] = 1;
+}
+
+
+
+	
+const draw = () => {
+    context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+	context.fillRect(0, 0, canvas.width, canvas.height);
+	context.fillStyle = '#0F0';
+	context.font = fontSize + 'px monospace';
+	
+
+	for(let i = 0; i < rainDrops.length; i++)
+	{
+		var write = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+		context.fillText(write, i*fontSize, rainDrops[i]*fontSize);
+		
+    
+        if(rainDrops[i]*fontSize > canvas.height && Math.random() > 0.991){
+			rainDrops[i] = 0;
+        }
+
+        
+            rainDrops[i]++;
+        
+		
+	}
+};
+
+setInterval(draw, 30);
+ </script>
+ 
+</body>
+</html>

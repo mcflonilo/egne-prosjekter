@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="oppgave1ul"></ul>
+    <ul id="oppgave2ul"></ul>
+
+    <div id="oppgave3div"> </div>
+    <div id="oppgave4div"> </div>
+
+    <div id="oppgave5div"></div>
+    <div id="oppgave6div"></div>
+
+    <script>
+        //oppgave 1
+        function oppgave1(){
+        var uloppg1 = document.getElementById("oppgave1ul");
+        var oppgave1array = [1,2,3,4,5,6,7];
+        for (var i =0;i<oppgave1array.length;i++){
+            uloppg1.innerHTML += "<li>"+oppgave1array[i]+"</li>";
+        }}
+        //oppgave1()
+
+
+        //oppgave2
+        function oppgave2(){
+        var uloppg2 = document.getElementById("oppgave2ul");
+        var oppgave2array = ["mann","musk","mulig","moro"];
+        for (var i =0;i<oppgave2array.length;i++){
+            uloppg2.innerHTML += "<li>"+oppgave2array[i]+"</li>";
+        }}
+        // oppgave2()
+
+        //oppgave3
+        function oppgave3(){
+        var divoppg3 = document.getElementById("oppgave3div");
+        var oppgave3array = ["cow.png","pig.png","pikatsju.png","turtle.png","yeti.png"];
+        for (var i =0;i<oppgave3array.length;i++){
+            divoppg3.innerHTML += "<img src= images/"+oppgave3array[i]+">";
+        }
+        divoppg3.innerhtml += oppgave3array.length}
+       // oppgave3();
+
+        //oppgave4
+        function oppgave4(){
+        var divoppg4 = document.getElementById("oppgave4div");
+        var oppgave4array = [];
+        for (var i =0;i<1000;i++){
+            oppgave4array.push( Math.floor(Math.random()*1000))
+            divoppg4.innerHTML += " "+oppgave4array[i];}}
+        // oppgave4();
+
+        //oppgave5
+        function oppgave5(){
+        var bool = true;
+        var count = 0;
+        var divoppg5 = document.getElementById("oppgave5div");
+        while(bool==true){
+            var value = prompt("ja/nei");
+            if(value === null){
+                bool=false;
+                divoppg5.innerHTML = "antall ganger while har kjørt "+count
+            }
+            else {
+                count++;
+            }
+        }}
+        //oppgave5()
+
+        //oppgave6
+        function oppgave6(){
+        var bool = true;
+        var oppgave6array = []
+        var divoppg6 = document.getElementById("oppgave6div");
+        var count = 0;
+        while(bool===true){
+           
+            var value = prompt("ja/nei");
+            if(value === null || value == "nei"){
+                bool=false;
+                for (var i = 0 ; i < oppgave6array.length ; i++){
+                divoppg6.innerHTML += "<p> "+oppgave6array[i]+ "</p>"
+
+                }
+            }
+            else {
+                oppgave6array.push(value);
+            }
+          
+        }}
+        oppgave6()
+
+
+    </script>
+</body>
+</html>

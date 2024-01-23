@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>bilde av haaland</title>
+    
+        <style>
+            body{
+                height: 100vh;
+            }
+            img{
+                width: 200px; height: 200px;
+            }
+        </style>
+    </head>
+
+   
+
+    <body>
+    
+   <h1 id="h1_id" ></h1>
+
+
+   <div class="plakat">
+    
+    <button onclick = "choosePic()"> Generate Image </button>  
+    <br> <br>  
+    <span id="result" align="center"> </span>   
+   
+
+   <span id="img0" ></span>
+   <span id="img1" ></span>
+   <span id="img2" ></span>
+   <span id="img3" ></span>
+   <span id="img4" ></span>
+   <span id="img5" ></span>
+   <span id="img6" ></span>
+   <span id="img7" ></span>
+   <span id="img8" ></span>
+   <span id="img9" ></span>
+   
+
+</div>
+
+<script>
+
+
+window.onload = load;
+
+
+function choosePic() {
+var randomNum = Math.floor(Math.random() * 135);
+var string ='<img src="/extrastuff/'+randomNum+'.jpg"/>';
+
+
+
+return document.getElementById("result").innerHTML = string;  
+}  
+function load() {
+
+    var randomNum = Math.floor(Math.random() * 5);
+for(var i = 1; 1<=10;i++){
+
+if(randomNum==0){
+var string ='<img src="/extrastuff/'+randomNum+'.avif"/>';
+}
+else if (randomNum==1){
+var randomNum2 = Math.floor(Math.random() * 107) + 1;
+var string ='<img src="D:/Users/lmoph/Min disk/vscode_prosjekter/skole/extrastuff/'+randomNum+' ('+randomNum2+')'+'.jpg"/>';
+}
+else if (randomNum==2){
+var randomNum2 = Math.floor(Math.random() * 3) + 1;
+var string ='<img src="img src="D:/Users/lmoph/Min disk/vscode_prosjekter/skole/extrastuff/'+randomNum+' ('+randomNum2+')'+'.jpeg"/>';
+}
+else if (randomNum==3){
+var randomNum2 = Math.floor(Math.random() * 11) + 1;
+var string ='<img src="img src="D:/Users/lmoph/Min disk/vscode_prosjekter/skole/extrastuff/'+randomNum+' ('+randomNum2+')'+'.png"/>';
+}
+else if (randomNum==4){
+var randomNum2 = Math.floor(Math.random() * 8) + 1;
+var string ='<img src="img src="D:/Users/lmoph/Min disk/vscode_prosjekter/skole/extrastuff/'+randomNum+' ('+randomNum2+')'+'.webp"/>';
+}
+else if (randomNum==5){
+var randomNum2 = Math.floor(Math.random() * 1) + 1;
+                 Math.floor(Math.random() * 10) + 1;
+var string ='<img src="img src="D:/Users/lmoph/Min disk/vscode_prosjekter/skole/extrastuff/'+randomNum+' ('+randomNum2+')'+'.gif"/>';
+}
+
+var spanName = "img"+i;
+document.getElementById(spanName).innerHTML = string; 
+document.getElementById('h1_id').textContent = randomNum + string;
+
+}
+}  
+</script>
+
+   
+
+
+    
+</body>
+
+</html>

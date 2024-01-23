@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move the box</title>
+    <style>
+        #box-1{
+            position: absolute;
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+    <!--
+        element.style.property er en teknikk i JavaScript for å stilsette elementer.
+
+        Mal: 
+        htmlObjekt.style.property = verdi;
+        
+        Eksempler på ting man kan stilsette:
+        - backgroundColor (bakgrunnsfarge)
+        - color (tekstfarge)
+        - width (bredde)
+        - height (høyde)
+        - position (gjør at man fritt kan bevege noe hvis man setter verdi til absolute)
+        - left, top, right, bottom
+
+        Eksempel: 
+        var titleH3 = document.getElementById("title-h3"):
+        titleH3.style.color = "red";
+        titleH3.style.position = "absolute";
+        titleH3.style.left = "500px";
+    -->
+</head>
+<body>
+
+    <input id="move-right-btn" type="button" value="Høyre">
+    <input id="move-left-btn" type="button" value="Venstre">
+    <input id="move-up-btn" type="button" value="Opp">
+    <input id="move-down-btn" type="button" value="Ned">
+    
+    <div id="box-1">text</div>
+
+    <script>
+
+
+        var box = document.getElementById("box-1")
+        var moverightbtn = document.getElementById("move-right-btn")
+        var moveleftbtn = document.getElementById("move-left-btn")
+        var moveupbtn = document.getElementById("move-up-btn")
+        var movedownbtn = document.getElementById("move-down-btn")
+        var rightbool = false
+        var leftbool = false
+        var upbool = false
+        var downbool = false
+        var rightvalue = 0
+        var upvalue = 0
+
+        function changeright(){
+        if(rightbool === false)
+            {rightbool = true
+            test()
+            console.log("hei")}
+        else {rightbool = false}}
+
+        function changeleft(){
+        if(leftbool === false){
+            leftbool = true}
+        else {leftbool = false}
+        moveleft()}
+
+        function changeup(){
+        if(upbool === false){
+            upbool = true}
+        else {upbool = false}
+        moveup()}
+
+        function changedown(){
+        var i= 0
+        if(downbool === false){
+            downbool = true}
+        else {downbool = false}
+        if(downbool === true){
+            while (downbool === true ){
+                if (i<10){
+                movedown()
+                i = 0}
+                else{i++}
+            console.log(i)}
+            }
+        } 
+
+       
+function test() {   
+    console.log("hello")
+  setTimeout(function() {  
+    console.log('hello');   
+    i++;                   
+    if (i < 10 && rightbool==true) {  
+        rightvalue+=1;
+        box.style.left = `${rightvalue}px`;
+        var i = 1;  
+      test();             
+    }                       
+  }, 300)
+}
+
+
+        
+        
+        function moveright(){
+                rightvalue+=1;
+                box.style.left = `${rightvalue}px`;}
+        function moveleft(){
+                rightvalue-=1;
+                box.style.left = `${rightvalue}px`}
+        function moveup(){
+                upvalue-=1;
+                box.style.top = `${upvalue}px`}
+        function movedown(){
+                upvalue+=1;
+                box.style.top = `${upvalue}px`}
+            
+
+            moverightbtn.onclick = moveright
+            moveleftbtn.onclick = moveleft
+            movedownbtn.onclick = changedown
+            moveupbtn.onclick = moveup
+
+    </script>
+
+</body>
+</html>

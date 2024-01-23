@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvass"></canvas>
+
+
+    <script>
+        var turnrate = 1
+        const canvas = document.getElementById("canvass");
+        var ctx = canvas.getContext("2d");
+        canvas.width = 5000
+        canvas.height = 5000
+        var height = canvas.height
+        var width = canvas.width
+        var num = 1
+        var x = width/2
+        var y = height/2
+        ctx.textAlign = "center"
+        ctx.font = "30px Arial";
+        var stepstate = 1
+        var stepstotake = 1
+        var stepstaken = 1
+        var stepsize = 10
+        
+
+        function draw(){
+            for(var i = 1; i<=100; i++){
+                if (checkprime(i)&&i!=1){
+                    ctx.beginPath();
+                    ctx.arc(x, y, 5, 0, 2 * Math.PI);
+                    ctx.stroke();
+            }
+            ctx.moveTo(x, y);
+            switch (stepstate){
+                case 1:{
+                    x+=stepsize
+                    checkstate()
+                    break
+                }
+                case 2:{
+                    y-=stepsize
+                    checkstate()
+                    break
+                }        
+                case 3:{
+                    x-=stepsize
+                    checkstate()
+                    break
+                }        
+                case 4:{
+                    y+=stepsize
+                    checkstate()
+                    break
+                }
+            }
+            
+            ctx.lineTo(x, y);
+            ctx.stroke()}}
+
+        function checkstate(){
+            if( stepstaken>=stepstotake&&turnrate === 2){
+                if(stepstate===4){
+                    stepstate = 1
+                    stepstotake++
+                    stepstaken = 0
+                    turnrate=1
+                }
+                else{
+                    stepstate++
+                    stepstotake++
+                    stepstaken = 0
+                    turnrate=1
+                }
+            }
+            else if(stepstaken>=stepstotake&&turnrate===1){
+                if(stepstate===4){
+                    stepstate = 1
+                    stepstaken = 0
+                    turnrate=2
+                }
+                else{
+                    stepstate++
+                    stepstaken = 0
+                    turnrate=2
+                }
+            }
+            stepstaken++   
+        }
+        function checkprime(num){
+            for(let i = 2, s = Math.sqrt(num); i<=s; i++)
+                if(num%i === 0) return false;
+            console.log(num)
+            
+            return true
+        }
+        console.log(Math.sqrt(7))
+        draw()
+        
+    </script> 
+    
+    
+</body>
+</html>

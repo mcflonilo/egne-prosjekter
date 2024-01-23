@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        #wrapper{position:relative;}
+        #d1{position:absolute 0; left:0; z-index:1; }
+        #c1{width:310px; height:300px; border:1px solid #d3d3d3;}
+        #h1{position:absolute; top:140px; left:140px; z-index:2; }
+        #h2{position:absolute; top:240px; left:140px; z-index:2; }
+        #h3{position:absolute; top:340px; left:140px; z-index:2; }
+        #h4{position:absolute; top:440px; left:140px; z-index:2; }
+        canvas{
+            position: absolute;
+            color: black;
+        }
+        </style>
+<head>
+    
+    <title>Matrix.js</title>
+    <div id="wrapper" style='position:relative'>
+
+ <form id='h1';>
+ <input id ="dectobininput" type="int"><hr>
+ <button type="button" onclick = "Translatedectobin()"> translate</button>
+ <p id = "DTBresult"></p>
+ </form> 
+
+
+<form id='h2';>
+<input id ="bintodecinput" type="int"><hr>
+<button type="button" onclick = "Translatebintodec()"> translate</button>
+<p id = "BTDresult"></p>
+</form> 
+
+
+<form id='h3';>   
+   <input id ="hextodecinput" type="int"><hr>
+   <button type="button" onclick = "Translatehextodec()"> translate</button>
+   <p id = "HTDresult"></p>
+</form> 
+
+<form id='h4';>   
+    <input id ="dectohexinput" type="int"><hr>
+    <button type="button" onclick = "Translatedectohex()"> translate</button>
+    <p id = "DTHresult"></p>
+ </form> 
+
+          
+  
+        <div id='d1'>
+            <canvas id="Matrix"></canvas>
+            
+          
+        </div>
+    
+      </div>
+    
+</head>
+<body>
+ <script src="matrix.js"></script>
+</body>
+</html>

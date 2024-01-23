@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img{
+        height: 500px;
+        width: 500px;
+    }
+</style>
+<body>
+    <img id="slide-show" src="1 (4).jpg" alt="">
+    <button id="next">next</button>
+    <button id="prev">prev</button>
+    <script>
+        var slideshow = document.getElementById("slide-show")
+        var nextbtn = document.getElementById("next")
+        var prevbtn = document.getElementById("prev")
+        var marray = [4,5,6,7,8,9,10,11,12,13,14,15,16,17]
+        var index = 0
+        function showprevimg(){
+            if (index === 0){
+                index = marray.length-1
+                slideshow.src = "1 ("+marray[index]+").jpg"
+                
+            }
+            else{
+                index--
+                slideshow.src = "1 ("+marray[index]+").jpg"}
+            
+        }
+        
+        function shownextimg(){
+            if (index === marray.length-1){
+                index = 0
+                slideshow.src = "1 ("+marray[index]+").jpg"
+                
+            }
+            else{
+            index++
+            slideshow.src = "1 ("+marray[index]+").jpg"
+        }}
+
+
+        nextbtn.onclick = shownextimg
+        prevbtn.onclick = showprevimg
+    </script>
+</body>
+</html>

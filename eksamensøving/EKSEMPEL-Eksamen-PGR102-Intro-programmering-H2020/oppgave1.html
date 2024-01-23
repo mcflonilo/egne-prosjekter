@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Oppgave 1. Glasset med ananasjuice (25%)</title>
+	<style>
+		#glass-div{
+			width: 150px;
+			height: 350px;
+			border: 1px solid black;
+			border-top: none;
+			margin-top: 50px;
+			position: relative;
+		}		
+		#juice-div{
+			height: 50px;
+			width: 100%;
+			background-color: rgb(230, 230, 50);
+			opacity: 0.5;
+			position: absolute;
+			bottom: 0;
+			transition: height 2s;
+		}		
+		#status-p{
+			color: red;
+		}		
+	</style>
+</head>
+<body>
+		
+	<h3>Ananasjuicedrikking</h3>
+	
+	<label>Juice-mengde</label>
+	<input id="juice-amount-txt" type="text">
+		
+	<input id="pour-more-juice-btn" type="button" value="Hell i mer juice">
+	<input id="drink-juice-btn" type="button" value="Drikk juice">
+	
+	<p id="status-p">Status nå: OK</p>
+	
+	<div id="glass-div">
+		<span id="juice-level-span">50</span>
+		<div id="juice-div"></div>
+	</div>
+		
+	<script>
+		var input = document.getElementById("juice-amount-txt")
+		var morejuicebtn = document.getElementById("pour-more-juice-btn")
+		var lessjuicebtn = document.getElementById("drink-juice-btn")
+		var glasstate = document.getElementById("status-p")
+		var div = document.getElementById("juice-div")
+		var spnner = document.getElementById("juice-level-span")
+		var currentjuice = 50
+		var maxjuice = 350
+	
+		function morejuice(){
+			if (currentjuice + parseInt(input.value)>maxjuice){
+				currentjuice = maxjuice
+				glasstate.innerHTML = "glasset er helt fullt"
+	
+			}
+			else{
+				currentjuice = currentjuice + parseInt(input.value)
+				glasstate.innerHTML = "status nå : helt ok"
+			}
+			div.style.height = currentjuice/maxjuice*100+"%"
+			spnner.innerHTML = currentjuice
+			console.log(currentjuice)
+			
+		}
+		function lessjuice(){
+			if (currentjuice - parseInt(input.value)<0){
+				currentjuice = 0
+				glasstate.innerHTML = "glasset er helt tomt"
+			}
+			else{
+				currentjuice = currentjuice - parseInt(input.value)
+				glasstate.innerHTML = "status nå : helt ok"
+			}
+			div.style.height = currentjuice/maxjuice*100+"%"
+			spnner.innerHTML = currentjuice
+			console.log(currentjuice)
+		}
+	
+		morejuicebtn.onclick = morejuice
+		lessjuicebtn.onclick = lessjuice
+	</script>
+	
+</body>
+</html>

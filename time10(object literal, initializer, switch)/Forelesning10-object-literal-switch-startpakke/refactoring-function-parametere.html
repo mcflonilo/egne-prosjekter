@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refaktorering med parametrisk funksjon</title>
+    <!--
+        function sayHiToMe(name){ // En funksjon med en parameter for navn.
+            outputDiv.innerHTML += `Heisan ${name}`;
+        }
+
+        sayHiToMe("Mr. JS"); // Kaller på funksjonen og sender inn et argument, navnet, som tas imot av funksjonen.
+    -->
+</head>
+<body>
+
+    <input id="show-pokemon-btn" type="button" value="Vis info om en pokemon">
+    
+    <div id="output-div"></div>
+
+    <script>
+
+        var showPokemonBtn = document.getElementById("show-pokemon-btn");
+
+        var pokemon = [
+            {name:"pikachu",type:"electric",image:"pikachu.png"},
+            {name:"psyduck",type:"psychic, water",image:"psyduck.png"},
+            {name:"bulbasaur",type:"grass",image:"bulbasaur.png"},
+            {name:"charmeleon",type:"fire",image:"charmeleon.png"}
+            ]
+
+        var outputDiv = document.getElementById("output-div");
+
+        /*
+            Koden nedenfor inneholder mye koderepetisjon.
+            Hvordan kan man lage parametrisk funksjon som kan gjøre at vi slipper å ha så mye koderepetisjon?
+        */
+
+        function getname(){
+            var pokename = prompt("type name")
+            for ( var i = 0 ; i < pokemon.length ; i++){
+                if (pokemon[i].name === pokename){
+                    showPokemon(i)
+                    console.log(pokemon[i].name)
+                    return}
+                }
+                alert("that is not a pokemon!")
+            }
+
+
+        function showPokemon(number){
+            var htmlTxt = `
+                <h3>Name: ${pokemon[number].name}</h3>
+                <img src="images/${pokemon[number].image}">
+                <p>Type: ${pokemon[number].type}</p>
+            `;
+            outputDiv.innerHTML = htmlTxt;
+        }
+
+        showPokemonBtn.onclick = getname;
+
+        
+
+    </script>
+
+</body>
+</html>

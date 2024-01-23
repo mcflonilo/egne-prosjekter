@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOTR-karakterer</title>
+</head>
+<body>
+
+    <h3>Hvor mange Lord Of The Rings-karakterer husker du?</h3>
+    <input id="start-test-btn" type="button" value="Start test">
+
+    <h3>Dine LOTR-karakterer</h3>
+    <p id="number-of-characters-p"></p>
+    <ul id="output-ul"></ul>
+    <script>
+
+        var startTestBtn = document.getElementById("start-test-btn");
+        var numberOfCharactersP = document.getElementById("number-of-characters-p");
+        var outputUl = document.getElementById("output-ul");
+      
+        
+
+        function startTest(){
+            var bool = true;
+            var string = ""
+            var count = 0
+            var array = []
+            while(bool === true ){
+                
+                var value = prompt("skriv inn karakter")
+                if( value == null || value.length === 0)
+                bool = false;
+                else{
+                array.push(value)
+                count++}
+                array.forEach(element => {
+                    string += "<li>"+element+"</li>"  
+                });
+            numberOfCharactersP.innerHTML = array.length;
+            outputUl.innerHTML = string
+            }}
+        startTestBtn.onclick = startTest;
+
+    </script>
+    
+</body>
+</html>

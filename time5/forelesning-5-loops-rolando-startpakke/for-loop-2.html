@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For loop - hvor mange bitcoins vil du ha?</title>
+    <!--
+        Få informasjon fra bruker gjennom tekstboks på siden for å angi antall ganger et bitcoin-bilde skal skrives ut.
+        Tallet vi får fra bruker blir antall ganger for-løkken skal kjøre.
+    -->
+</head>
+<body>
+    <label>antall bitcoin</label>
+    <input type="number" id="in">
+    <input type="button" id="button" value="gi meg bitccoin">
+
+    <div id="bitdiv"></div>
+    <script>
+        var inn = document.getElementById("in")
+        var knapp = document.getElementById("button")
+        var div = document.getElementById("bitdiv") 
+        function print(){
+            console.log("hei")
+            var text = ""
+        for(var i = 0; i<inn.value; i++){
+            text += "<img src= images/bc.png>"
+            div.innerHTML=text
+        }}
+        
+        knapp.onclick = print
+    </script>
+   
+</body>
+</html>

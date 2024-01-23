@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilfeldig filmanbefaling</title>
+    <!--
+        Vise tilfeldig film fra film-array.   
+        ["", ""]
+        Math.floor( Math.random() * x )     
+        [index]
+    -->
+</head>
+<body>
+
+    <input id="show-random-movie-btn" type="button" value="Anbefal tilfeldig film">
+    <div id="output-div"></div>    
+
+    <script>
+    var output = document.getElementById("output-div");
+    var button = document.getElementById("show-random-movie-btn");
+    var movies = 
+        ["america-3000.jpg",
+        "batman.jpg",
+        "five-fingers.jpg",
+        "four-d-man.jpg",
+        "zombies-stratosphere.jpg"];
+
+    function showMovie(){
+        var index = movies[Math.floor(Math.random()*movies.length)]
+
+        output.innerHTML= `<img src=images/${index}>`
+    }
+    button.onclick = showMovie
+    </script>
+
+</body>
+</html>

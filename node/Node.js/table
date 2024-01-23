@@ -1,0 +1,11 @@
+Server:  UnKnown
+Address:  80.232.93.176
+
+google.com
+	primary name server = ns1.google.com
+	responsible mail addr = dns-admin.google.com
+	serial  = 495828599
+	refresh = 900 (15 mins)
+	retry   = 900 (15 mins)
+	expire  = 1800 (30 mins)
+	default TTL = 60 (1 min)

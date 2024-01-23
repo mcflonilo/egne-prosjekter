@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title"></title>
+    <!--
+        Object literal er en teknikk for å samle informasjon om noe i et "objekt".
+        Man kan sette properties (attributter: eksempelvis navn, telefon, adresse osv.) på objekter.
+    -->
+</head>
+<body>
+    
+    <h1>Månedens pizza</h1>
+    
+    <h3 id="pizza-name-h3"></h3>
+    <img id="pizza-img" src="" alt="Månedens pizza. Foto.">
+    <p id="pizza-description"></p>
+
+    <script>
+
+        var pageTitle = document.getElementById("page-title");
+        var pizzaNameH3 = document.getElementById("pizza-name-h3");
+        var pizzaImg = document.getElementById("pizza-img");
+        var pizzaDescription = document.getElementById("pizza-description");
+
+        var pizza = [
+            {name:"pizza med basilikum",beskrivelse:"denne har masse grønt på seg!",image:"images/pizza1.jpg"},
+            {name:"pizza med sopp",beskrivelse:"denne her har så mye sopp du kommer til å bli gæærn",image:"images/pizza2.jpg"},
+            {name:"pizza med oliven",beskrivelse:"æsj olive",image:"images/pizza3.jpg"},
+            {name:"pizza med ananas",beskrivelse:"my god man",image:"images/pizza4.jpg"}
+            ]
+
+        function showpizza(){
+            var random = Math.floor(Math.random()*4)
+            pageTitle.innerHTML = "månedens pizza er "+pizza[random].name
+            pizzaNameH3.innerHTML = pizza[random].name
+            pizzaImg.src = pizza[random].image
+            pizzaDescription.innerHTML = pizza[random].beskrivelse
+        }
+        showpizza()
+        // Object literal med info om månedens pizza
+
+        // Funksjon for å skrive ut info til siden
+
+        // Kall til funksjon
+
+    </script>
+
+</body>
+</html>

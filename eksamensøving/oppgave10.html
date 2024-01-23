@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="inntekst" type="text">
+    <div id="out-div"></div>
+    <button id="btn">dyr</button>
+    <button id="btn2">nyheter</button>
+    
+    <br>
+    <br>
+    <br>
+    <input id="vekt" type="number">
+    <input id="høyde" type="number">
+    <button id="bmibtn">regn bmi</button>
+    <div id="bmidiv"></div>
+    <br>
+    <br>
+    <br>
+    <input id="spilltekst" type="text">
+    <div id="spilldiv"></div>
+    <button id="spillbtn">spill</button>
+<br>
+<br>
+<br>
+    <input id="tall1" type="number">
+    <input id="tall2" type="number">
+    <button id="pluss">+</button>
+    <button id="minus">-</button>
+    <button id="gange">*</button>
+    <button id="dele">/</button>
+    <button id="regne">=</button>
+    <br>
+    <div id="mathdiv"></div>
+</body>
+<script>
+    {//nyheter
+    var inn = document.getElementById("inntekst")
+    var outdiv = document.getElementById("out-div")
+    var butt = document.getElementById("btn")
+    var nyhetbtn = document.getElementById("btn2")
+    var dyrarray = 
+        [
+        {name:"katt",img:"0.avif"},
+        {name:"hund",img:"\"1 (1).jpg\""},
+        {name:"fugl",img:"\"1 (2).jpg\""},
+        {name:"fisk",img:"\"1 (3).jpg\""},    
+        {name:"hest",img:"\"1 (4).jpg\""},
+        {name:"kratt",img:"\"1 (5).jpg\""},
+        ]
+    var nyhetarray = 
+    [
+    {   title:"hans og petter fant bug!",
+        content:[
+            "hans og petter fant en bug i sin kode sent mandag kveld",
+            "uijhawiudfhw",
+            "sdfgsefse",
+            "dfjuhesiouaoipuiuopgr"
+        ],
+        image:"0.avif",
+        author:"marianne nilsen",
+        date:"30.10.2019"
+    },
+    {   title:"nyheter er gay",
+        content:[
+            "hans og petter fant en bug i sin kode sent mandag kveld",
+            "uijhawiudfhw",
+            "sdfgsefse",
+            "dfjuhesiouaoipuiuopgr"
+        ],
+        image:"\"1 (1).jpg\"",
+        author:"ola gaysen",
+        date:"690.69.2019"
+    },
+    {   title:"hans og petter fant bug!",
+        content:[
+            "hans og petter fant en bug i sin kode sent mandag kveld",
+            "uijhawiudfhw",
+            "sdfgsefse",
+            "dfjuhesiouaoipuiuopgr"
+        ],
+        image:"0.avif",
+        author:"marianne nilsen",
+        date:"30.10.2019"
+    },
+        ]
+    function showanimal(tekst){
+        for(var i = 0;i<dyrarray.length;i++){
+            if (tekst === dyrarray[i].name){
+                outdiv.innerHTML = "<img src="+dyrarray[i].img+">"
+            }
+            console.log(outdiv.innerHTML)
+        }
+    }
+    butt.onclick = function(){
+        showanimal(inn.value)
+    }
+    function shownews(){
+        for (let s = 0; s < nyhetarray.length; s++) {
+        var string = ""
+        for (let index = 0; index < nyhetarray[s].content.length; index++) {
+            string += nyhetarray[s].content[index];
+        }
+        outdiv.innerHTML += `
+            <h1>${nyhetarray[s].title}</h1>
+            <p>skrevet ${nyhetarray[s].date} av ${nyhetarray[0].author}</p>
+            <img src="${nyhetarray[s].image}">
+            <p>${string}</p>
+        `
+    }}
+    
+    nyhetbtn.onclick = shownews}
+    {//bmi
+        var innhøyde = document.getElementById("høyde")
+        var innvekt = document.getElementById("vekt")
+        var bmibtn = document.getElementById("bmibtn")
+        var stringout = ""
+        var outbmi = document.getElementById("bmidiv")
+        
+        function bmikalk(vekt,høyde){
+            var bmi = (vekt/(høyde*høyde))
+            if      (bmi<=18.4)            {stringout = bmi +"= undervekt"}
+            else if (bmi>=18.4&&bmi<=25) {stringout = bmi +"= normalvekt"}
+            else if (bmi>=25&&bmi<=30)   {stringout = bmi +"= overvekt"}
+            else if (bmi>=30&&bmi<=35)   {stringout = bmi +"= fedme, grad 1"}
+            else if (bmi>=35&&bmi<=40)   {stringout = bmi +"= fedme, grad 2"}
+            else if (bmi>=40)              {stringout = bmi +"= fedme, grad 3"}                    
+            outbmi.innerHTML = stringout
+            console.log(bmi)
+        }
+        bmibtn.onclick = function(){bmikalk(innvekt.value,innhøyde.value)}
+    }
+    {//spill
+        var spillinput = document.getElementById("spilltekst")
+        var spilldiv = document.getElementById("spilldiv")
+        var spillbtn = document.getElementById("spillbtn")
+        var spillarray = 
+        [
+        {//doom
+        title:"doom",
+        description:"actionspill",
+        image: "1 (1).jpg",
+        price: 69,
+        category:["action", "fps"],
+        platforms:["pc","ps4","ps5","switch"]
+        },
+        {//farcry
+        title:"farcry",
+        description:"actionspill",
+        image: "1 (2).jpg",
+        price: 29,
+        category:["action", "fps"],
+        platforms:["pc","ps4","ps3","xbox360"]
+        },
+        {//splatoon
+        title:"splatoon",
+        description:"fun",
+        image: "1 (3).jpg",
+        price: 79,
+        category:["arena"],
+        platforms:["switch"]
+        },
+        ]
+        
+        function showspill(tekst){
+            var index
+            for (let i = 0; i < spillarray.length; i++) {
+                if(spillarray[i].title===tekst){index=i 
+                    break}}
+            
+            var category = ""
+            for (let i = 0; i < spillarray[index].category.length; i++) {
+                category += "<li>"+spillarray[index].category[i]+"</li>"
+                
+            }
+            var platforms = ""
+            for (let i = 0; i < spillarray[index].platforms.length; i++) {
+                platforms += "<li>"+spillarray[index].platforms[i]+"</li>"
+                
+            }
+            spilldiv.innerHTML = 
+            `
+            <h1>${spillarray[index].title}</h1>
+            <p>${spillarray[index].description}</p>
+            <img src="${spillarray[index].image}" alt="">
+            <p>${spillarray[index].price}</p>
+            <ul>category${category}</ul>
+            <ul>platforms${platforms}</ul>
+            `
+        }
+        spillbtn.onclick = function(){showspill(spillinput.value)}
+    }
+    {//kalkulator
+        var tall1 = document.getElementById("tall1")
+        var tall2 = document.getElementById("tall2")
+        var pluss = document.getElementById("pluss")
+        var minus = document.getElementById("minus")
+        var gange = document.getElementById("gange")
+        var dele =  document.getElementById("dele")
+        var regne = document.getElementById("regne")
+        var outdiv = document.getElementById("mathdiv")
+        var methodstate = 0
+    
+        function updatediv(){
+            var string = ""
+            switch (methodstate) 
+            {
+                case 0:{string = tall1.value +"<br>"+ "+" +"<br>"+ tall2.value}break;
+                case 1:{string = tall1.value +"<br>"+ "-" +"<br>"+ tall2.value}break;
+                case 2:{string = tall1.value +"<br>"+ "*" +"<br>"+ tall2.value}break;
+                case 3:{string = tall1.value +"<br>"+ "/" +"<br>"+ tall2.value}break;
+            }
+            outdiv.innerHTML=string
+            return string
+        }
+
+        function kalk(){
+            x = parseInt(tall1.value) 
+            y = parseInt(tall2.value) 
+            var result
+            switch (methodstate) 
+            {
+                case 0:{
+                    result = x+y
+                    break
+                }
+                case 1:{
+                    result = x-y
+                    break
+                }
+                case 2:{
+                    result = x*y
+                    break
+                }
+                case 3:{
+                    result = x/y
+                    break
+                }
+            }
+            outdiv.innerHTML = updatediv()+"<br>" + " = "+result
+        }
+        
+        tall1.addEventListener("keypress", function(){setTimeout(updatediv,01)})
+        tall2.addEventListener("keypress", function(){setTimeout(updatediv,01)})
+        pluss.onclick = function(){ methodstate=0; updatediv()}
+        minus.onclick = function(){methodstate=1; updatediv()}
+        gange.onclick = function(){methodstate=2; updatediv()}
+        dele.onclick = function(){methodstate=3; updatediv()}
+        regne.onclick = kalk
+    }
+
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="addtwo">
+    <div id="diven"></div>
+    <p id="infop"></p>
+
+    <script>
+        var addtwo = document.getElementById("addtwo")
+        var outputdiv = document.getElementById("diven")
+        var info = document.getElementById("infop")
+
+        function addtwomonsters(){
+            var htmltxt = `
+            <img id="img1" data-name ="kid rock" data-counter = "0" src ="1 (13).jpg">
+            <img id="img2" data-name ="hund" data-counter = "0" src = "1 (14).jpg">`
+            outputdiv.innerHTML = htmltxt
+            var bilde1 = document.getElementById("img1")
+            var bilde2 = document.getElementById("img2")
+            bilde1.onclick = snakk
+            bilde2.onclick = snakk
+        }
+        function snakk(){
+            var htmltxt = "hei jeg heter "+this.dataset.name+" du har klikket på meg "+this.dataset.counter++
+            info.innerHTML = htmltxt
+        }
+        
+        addtwo.onclick = addtwomonsters
+    </script>
+</body>
+</html>

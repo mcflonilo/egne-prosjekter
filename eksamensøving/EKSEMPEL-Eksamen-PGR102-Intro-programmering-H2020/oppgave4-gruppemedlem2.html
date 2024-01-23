@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Navn på valgt oppgave; ref. alternativene i eksamensoppgavene</title>
+</head>
+<style>
+	#game{
+		display: flex;
+		width: 400px;
+		height: 300px;
+		flex-wrap: wrap;
+	}
+	.square{
+		width: 100px;
+		height: 100px;
+		border: 2px solid black;
+	}
+	img{
+		width: 100%;
+		height: 100%;
+	}
+</style>
+<body>
+	<div id="game">
+		<div id="top-left" class="square"></div>
+		<div id="top-middle" class="square"></div>
+		<div id="top-right" class="square"></div>
+		<div id="middle-left" class="square"></div>
+		<div id="middle-middle" class="square"></div>
+		<div id="middle-right" class="square"></div>
+		<div id="bottom-left" class="square"></div>
+		<div id="bottom-middle" class="square"></div>
+		<div id="bottom-right" class="square"></div>
+	</div>
+
+	<script>
+		var squares = 
+		[
+			document.getElementById("top-left"),
+			document.getElementById("top-middle"),
+			document.getElementById("top-right"),
+			document.getElementById("middle-left"),
+			document.getElementById("middle-middle"),
+			document.getElementById("middle-right"),
+			document.getElementById("bottom-left"),
+			document.getElementById("bottom-middle"),
+			document.getElementById("bottom-right")
+		]
+		for (let i = 0; i < squares.length; i++) {
+			squares[i].addEventListener("click",clicked)
+		}
+		function clicked(){
+			if (document.getElementById(this.id).style.backgroundColor=="red"||document.getElementById(this.id).hasChildNodes()) {
+				alert("du kan ikke velge den")
+				
+			}
+			else {
+				document.getElementById(this.id).innerHTML = "<img src=\"images/1 (1).jpg\">"
+				winCheck(this.id)
+				setTimeout(2000, aiTurn()) 
+			}
+			
+			
+		}
+
+		function winCheck(key){
+			var topLeft = document.getElementById("top-left").hasChildNodes()
+			var topMiddle = document.getElementById("top-middle").hasChildNodes()
+			var topRight = document.getElementById("top-right").hasChildNodes()
+			var	middleLeft = document.getElementById("middle-left").hasChildNodes()
+			var middleMiddle = document.getElementById("middle-middle").hasChildNodes()
+			var middleRight = document.getElementById("middle-right").hasChildNodes()
+			var bottomLeft = document.getElementById("bottom-left").hasChildNodes()
+			var bottomMiddle = document.getElementById("bottom-middle").hasChildNodes()
+			var bottomRight = document.getElementById("bottom-right").hasChildNodes()
+			
+			if(	topLeft    + topMiddle    + topRight     == 3||
+				topLeft    + middleLeft   + bottomLeft   == 3||
+				topLeft    + middleMiddle + bottomRight  == 3||
+				topMiddle  + middleMiddle + bottomMiddle == 3||
+				topRight   + middleMiddle + bottomLeft   == 3||
+				topRight   + middleRight  + bottomRight  == 3||
+				bottomLeft + bottomMiddle + bottomRight  == 3||
+				middleLeft + middleMiddle + middleRight  == 3 )
+				{alert("du vant!")}}
+		
+		function aiTurn(){
+			var i = true
+			while (i) {
+				var random = Math.floor(Math.random()*9)
+				if (squares[random].hasChildNodes()==false || (squares[random].style.backgroundColor=="red")==true) {
+					squares[random].style.backgroundColor = "red"
+					console.log("hei")
+					i=false
+				}
+			}
+			
+		}
+
+
+	</script>
+</body>
+</html>

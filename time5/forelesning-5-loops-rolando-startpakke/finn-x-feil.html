@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finn x feil</title>
+</head>
+<body>
+
+    <button id="add-hamster-btn">Gi meg en hamster</button>
+    <button id="add-cupcake-btn">Gi meg en cupcake</button>
+
+    <div id="stuff-output"></div>
+
+    <script>
+
+        /*
+            ***
+            HTML-objekter
+            ***
+        */
+        var addHamsterBtn = document.getElementById("add-hamster-btn");
+        var addCupcakeBtn = document.getElementById("add-cupcake-btn");
+        var stuffOutput = document.getElementById("stuff-output");
+        
+        /*
+            ***
+            Funksjoner
+            ***
+        */
+        function addHamster(){
+            stuffOutput.innerHTML += `<img src="images/hamster.png">`;
+        }
+
+        function addCupcake(){
+            stuffOutput.innerHTML += `<img src="images/cupcake.png">`;
+        }
+
+        /*
+            ***
+            Events
+            ***
+        */
+        addHamsterBtn.onclick = addHamster;
+        addCupcakeBtn.onclick = addCupcake;
+
+    </script>
+    
+</body>
+</html>

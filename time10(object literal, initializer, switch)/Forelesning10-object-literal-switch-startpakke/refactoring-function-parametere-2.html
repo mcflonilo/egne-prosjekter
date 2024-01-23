@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refaktorering med parametrisk funksjon</title>
+    <!--
+        function sayHiToMe(name){ // En funksjon med en parameter for navn.
+            outputDiv.innerHTML += `Heisan ${name}`;
+        }
+
+        sayHiToMe("Mr. JS"); // Kaller på funksjonen og sender inn et argument, navnet, som tas imot av funksjonen.
+    -->
+</head>
+<body>
+
+    <input id="show-pikachu-btn" type="button" value="Vis info om Pikachu">
+    <input id="show-psyduck-btn" type="button" value="Vis info om Psyduck">
+    <input id="show-bulbasaur-btn" type="button" value="Vis info om Bulbasaur">
+    <input id="show-charmeleon-btn" type="button" value="Vis info om Charmeleon">
+    
+    <div id="output-div"></div>
+
+    <script>
+
+        var showPikachuBtn = document.getElementById("show-pikachu-btn");
+        var showPsyduckBtn = document.getElementById("show-psyduck-btn");
+        var showBulbasaurBtn = document.getElementById("show-bulbasaur-btn");
+        var showCharmeleonBtn = document.getElementById("show-charmeleon-btn");
+
+        var outputDiv = document.getElementById("output-div");
+
+        /*
+            Koden nedenfor inneholder mye koderepetisjon.
+            Hvordan kan man lage parametrisk funksjon som kan gjøre at vi slipper å ha så mye koderepetisjon?
+        */
+
+        function showpokemon(name, type, image){
+
+        }
+        function showPikachu(){
+            var htmlTxt = `
+                <h3>Name: Pikachu</h3>
+                <img src="images/pikachu.png">
+                <p>Type: Electric</p>
+            `;
+            outputDiv.innerHTML = htmlTxt;
+        }
+
+        function showPsyduck(){
+            var htmlTxt = `
+                <h3>Name: Psyduck</h3>
+                <img src="images/psyduck.png">
+                <p>Type: Water</p>
+            `;
+            outputDiv.innerHTML = htmlTxt;
+        }
+
+        function showBulbasaur(){
+            var htmlTxt = `
+                <h3>Name: Bulbasaur</h3>
+                <img src="images/bulbasaur.png">
+                <p>Type: Grass, Poison</p>
+            `;
+            outputDiv.innerHTML = htmlTxt;
+        }
+
+        function showCharmeleon(){
+            var htmlTxt = `
+                <h3>Name: Charmeleon</h3>
+                <img src="images/charmeleon.png">
+                <p>Type: Fire</p>
+            `;
+            outputDiv.innerHTML = htmlTxt;
+        }
+
+        showPikachuBtn.onclick = showPikachu;
+        showPsyduckBtn.onclick = showPsyduck;
+        showBulbasaurBtn.onclick = showBulbasaur;
+        showCharmeleonBtn.onclick = function(){//anonym funksjon
+            
+        };
+
+    </script>
+
+</body>
+</html>

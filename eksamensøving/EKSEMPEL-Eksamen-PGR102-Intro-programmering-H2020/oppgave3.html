@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Oppgave 3. Matlageret (25%)</title>
+</head>
+<body>
+
+	<h3>Matlageret</h3>
+	<label>Produktnavn</label>
+	<input id="name" type="text"><br>
+	<label>Antall på lager</label>
+	<input id="number" type="text"><br>
+	<input id="add" type="button" value="Legg til produkt i array">
+	<input id="show" type="button" value="Vis produkter du har lagt til">
+	<div id="out"></div>
+	
+	<script>	
+var addbtn = document.getElementById("add")
+var showbtn = document.getElementById("show")
+var numberinput = document.getElementById("number")
+var nameinput = document.getElementById("name")
+var outdiv = document.getElementById("out")
+var itemarray = [
+    {name: "iushefg", amount: 4},
+    {name: "adfgefg", amount: 2},
+    {name: "swefgragaS", amount: 5},
+    {name: "dfsefe", amount: 1},
+    {name: "d", amount: 3},
+    {name: "dfsefe", amount: 1},
+]
+function startarray(){
+    for(var i = 0 ; i<100; i++){
+            var ran = Math.floor(Math.random()*100)
+        itemarray.push({name: "iushefg", amount: ran})
+    }
+}
+startarray()
+function addtoarray(){
+    let itemname = nameinput.value 
+    let itemamount = numberinput.value
+    let item = {name: itemname, amount: itemamount}
+    itemarray.push(item)
+    }
+
+function showarray(){
+    var string = ""
+    console.log(itemarray)
+    var outcount = 0 
+    var clonearray = Array.from(itemarray)
+    while(0 != clonearray.length)
+    for (var i = 0 ; i<clonearray.length; i++){
+        for (var s = 0 ; s<clonearray.length; s++){
+            if (sortByAmount(clonearray[i],clonearray[s])===-1){
+                break
+            }
+            else if(s === clonearray.length-1){
+                string += " "+clonearray[i].amount+ " "+ clonearray[i].name+ "<br>"
+                clonearray.splice(i,1)
+                outcount++
+
+            }
+        }}
+        outdiv.innerHTML = string
+    }
+addbtn.onclick = addtoarray
+showbtn.onclick = showarray
+
+
+		function sortByAmount(a, b) {
+		  if (a.amount < b.amount) {
+			return 1;
+		  }
+		  if (a.amount > b.amount) {
+			return -1;
+		  }
+		  return 0;
+		}		
+
+	</script>
+</body>
+</html>
+
+

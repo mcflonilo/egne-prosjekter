@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tid og ting</title>
+    <!--
+        setTimeout og setInterval er metoder i JavaScript som gjør at man kan sette igang tidstellere.
+        Med dem kan man få noe til å skje om x millisekunder (setTimeout), eller hver x millisekunder (setInterval)
+    -->
+</head>
+<body>
+
+    <input id="start-counting-btn" type="button" value="Start telling">
+
+    <div id="output1-div"></div>
+    <div id="output2-div"></div>
+    
+    <script>
+
+        var startCountingBtn = document.getElementById("start-counting-btn");
+
+        var output1Div = document.getElementById("output1-div");
+        var output2Div = document.getElementById("output2-div");      
+        var count = 0
+        function counter(){
+            setTimeout(function(){
+                output1Div.innerHTML = "hei"
+                setTimeout(function(){
+                    output1Div.innerHTML = ""
+                }, 5000);
+            },5000)
+        }
+        
+        startCountingBtn.onclick = counter
+
+    </script>
+
+</body>
+</html>

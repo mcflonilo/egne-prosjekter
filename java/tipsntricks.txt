@@ -1,0 +1,3 @@
+println printer en linje.
+for å få spesialtegn i en string må man bruke \ før karakteren man vil printe
+å bruke scanner nextline flere ganger på rad virker ikke hvis man har brukt nextint før siden det er en escape character inni scanneren

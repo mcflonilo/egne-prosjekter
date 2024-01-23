@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="out1"></div>
+    <button id="makebtn">make divs</button>
+    <button id="stylebtn">make them gray</button>
+    <button id="stylebtn2">make them red</button>
+    <button id="stylebtn3">make them green</button>
+    <button id="stylebtn4">make them blue</button>
+    <button id="stylebtn5">make them random</button>
+
+    <div id="out2"></div>
+    <div id="out3"></div>
+
+
+</body>
+<script>
+    {//task 1
+    var output = document.getElementById("out1")
+    var array = [1234,432123,43453,4531,34542,3342,32]
+    function task1(){
+        var total = 0
+        var string = ""
+        for (var i =0 ; i < array.length; i++){
+            total += array[i]
+            string += "<li>"+array[i]+"</li>"
+
+        }
+        output.innerHTML = string + "<br>" + total
+    }
+    task1()}
+    
+    {//task 2
+    var makebutton = document.getElementById("makebtn")
+    var stylebutton = document.getElementById("stylebtn")
+    var redstylebutton = document.getElementById("stylebtn2")
+
+    var out2 = document.getElementById("out2")
+    function task2a(){
+        for (var i = 256 ; i > 0; i--){
+            out2.innerHTML += "<div id=id"+i+">"+i+"</div>"
+        }
+    }
+    function task2b(){
+        var tempdiv
+        for (var i = 256 ; i > 0; i--){
+            out2.style.display="flex" 
+            out2.style.flexWrap= "wrap" 
+            out2.style.flexDirection="row"
+            tempdiv = document.getElementById("id"+i)
+            tempdiv.style.backgroundColor = "rgb("+i+", "+i+", "+i+")"
+            tempdiv.style.display = "grid"
+            tempdiv.style.width = "100px"
+            tempdiv.style.height = "100px"
+        }
+    }}
+    
+    {//task 3
+    function task3(){
+        var tempdiv
+        for (var i = 256 ; i > 0; i--){
+            tempdiv = document.getElementById("id"+i)
+            tempdiv.style.backgroundColor = "rgb("+i+", "+0+", "+0+")"
+            tempdiv.style.display = "grid"
+            tempdiv.style.width = "100px"
+            tempdiv.style.height = "100px"
+        }
+    }
+    makebutton.onclick = task2a
+    stylebutton.onclick =task2b
+    redstylebutton.onclick =task3}
+    
+    {//task 4
+    var out3 = document.getElementById("out3")
+
+    function task5(){
+        var loops = prompt("hvor mange ganger skal den loope")
+        var total = 0
+        var string = ""
+        for ( var i = 0 ; i<loops; i++){
+            total += i
+            if(i===0){string += i}
+            else {string += "+"+i}
+        }
+        out3.innerHTML= string + " = "+ total
+    }
+    task5()
+    }
+    
+    {//task 6
+    var redbtn = document.getElementById("stylebtn2")
+    var greenbtn = document.getElementById("stylebtn3")
+    var bluebtn = document.getElementById("stylebtn4")
+    var randombtn = document.getElementById("stylebtn5")
+    function task6(color){
+        for (var i = 256 ; i > 0; i--){
+            tempdiv = document.getElementById("id"+i)
+            switch (color) {
+                case "red":{
+                    tempdiv.style.backgroundColor = "rgb("+i+", "+0+", "+0+")"
+                    break;
+                }
+                case "green":{
+                    tempdiv.style.backgroundColor = "rgb("+0+", "+i+", "+0+")"
+                    break;
+                }
+                case "blue":{
+                    tempdiv.style.backgroundColor = "rgb("+0+", "+0+", "+i+")"
+                    break;
+                }
+                case "random":{
+                    tempdiv.style.backgroundColor = `rgb(
+                        ${Math.floor(Math.random()*255)},
+                        ${Math.floor(Math.random()*255)},
+                        ${Math.floor(Math.random()*255)}`
+                    break;
+                }}}}
+            redbtn.onclick = function(){task6("red")}
+            greenbtn.onclick = function(){task6("green")}
+            bluebtn.onclick = function(){task6("blue")}
+            randombtn.onclick = function(){task6("random")}
+            }
+
+</script>
+</html>

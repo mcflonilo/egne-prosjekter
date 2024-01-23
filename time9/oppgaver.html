@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <p id="phtml">sefge</p>
+    <input id="name-txt" type="text">
+    <input id="name-txt2" type="text">
+    <button id="run"></button>
+    <p id="oppgave5result"></p>
+    <div id="oppg6div"></div>
+    <div id="oppg7div"></div>
+    <div id="oppg7div2"></div>
+    <div id="oppg7div3"></div>
+
+    <style>
+        #oppg6div{
+            height: 100px;
+            width: 100px;
+        }
+        div{
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+        }
+    </style>
+</body>
+<script>
+    var ordarray = ["ord1","ord2","ord3","ord4","ord5","ortd6",]
+    var collection = document.getElementsByTagName("li");
+    document.getElementById("phtml").innerHTML = oppgave4(17,18)
+    var inn = document.getElementById("name-txt")
+    var inn2 = document.getElementById("name-txt2")
+    var btn = document.getElementById("run")
+    var oppg5p = document.getElementById("oppgave5result")
+    var opg6div = document.getElementById("oppg6div")
+    var oppg7div = document.getElementById("oppg7div")
+    var oppg7div2 = document.getElementById("oppg7div2")
+    var oppg7div3 = document.getElementById("oppg7div3")
+   function oppgave2(){
+   for (var i = 0 ; i< collection.length; i++){
+    var random = Math.floor(Math.random()*100)
+    collection[i].innerHTML = random
+   }}
+   oppgave2()
+   function oppgave3(){
+   for (var i = 0 ; i< collection.length; i++){
+    collection[i].innerHTML = ordarray[i]
+   }}
+   oppgave3()
+   function oppgave4(tall1, tall2){
+    var result= tall1*tall2
+    console.log(result)
+    return result
+    }
+
+    {//oppgave5
+    function oppgave5a(tall1, tall2){
+    var result= tall1*tall2
+    console.log(result)
+    return result
+    }
+    function oppgave5b(){
+        oppg5p.innerHTML = oppgave5a(inn.value,inn2.value)
+    }
+    btn.onclick = oppgave5b
+    }   
+
+    {//oppgave6
+    function oppgave6a(ceiling){
+        return Math.floor(Math.random()*ceiling)
+    }
+    function oppgave6b(){
+     opg6div.style.backgroundColor = 'rgb(' + oppgave6a(256) + ',' + oppgave6a(256) + ',' + oppgave6a(256) + ')';
+    }
+    opg6div.onclick = oppgave6b}
+    
+    {//oppgave7    
+    function oppgave7a(ceiling){
+        var random = Math.floor(Math.random()*ceiling)
+        var random2 = Math.floor(Math.random()*ceiling)
+        var random3 = Math.floor(Math.random()*ceiling)
+        return 'rgb(' + random + ',' + random2 + ',' + random3 + ')'
+    }
+    
+    function oppgave7b(obj, color){
+        obj.style.backgroundColor = color
+
+    }
+    function oppgave7c(){
+        oppgave7b(this, oppgave7a(256))
+    }
+    oppg7div.onclick = oppgave7c
+    oppg7div2.onclick = oppgave7c
+    oppg7div3.onclick = oppgave7c}
+</script>
+</html>

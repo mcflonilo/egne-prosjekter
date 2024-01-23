@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For loop intro</title>
+    <!--
+        for loop / for-løkken
+        ---
+        Loops er koder i programmering som utfører noe flere ganger.
+        for-løkken bruker vi for å utføre noe et bestemt antall ganger.
+    -->
+</head>
+<body>
+
+    <div id="hamster-output"></div>
+    <script>
+    
+        var hamstere = prompt("hvor mange hamstere")
+        var string = ""
+       for (var I =0 ; I<hamstere ; I++){
+        string +="<img src=images/hamster.png >"
+       }
+       document.getElementById("hamster-output").innerHTML = string;
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+      
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lille by</title>
+</head>
+<body>
+    <h3>bygg din egen by</h3>
+
+    <button id="add-building-2-btn"><img src="images/1 (1).jpg" alt="">5000</button>
+    <button onclick="showtext('fact2')" id="add-building-3-btn"><img src="images/1 (2).jpg" alt="">15000</button>
+    <button onclick="showtext()" id="add-warrior-1-btn"><img src="images/1 (3).jpg" alt="">10</button>
+
+    <button id="listbutton">legg til en by</button>
+    <div id="currency-output"></div>
+    <div id="city-output"></div>
+    <ul id="ul"></ul>
+<div>
+    <button><img id="superhelt1" src="images/1 (1).jpg" alt=""></button>
+    <button><img id="superhelt2" src="images/1 (2).jpg" alt=""></button>
+    <button><img id="superhelt3" src="images/1 (3).jpg" alt=""></button>
+    <p id="supertekst"></p>
+</div>
+
+<div id="divaddisjon">
+    <button id="addisjon">adder to tall</button>
+</div>
+
+<button id="maniacbutton">CLICK!</button>
+<div id="maniacdiv"></div>
+
+    <script>
+        var addbuilding2btn = document.getElementById("add-building-2-btn");
+        var addbuilding3btn = document.getElementById("add-building-3-btn");
+        var addwarrior1btn = document.getElementById("add-warrior-1-btn");
+        var cityoutput = document.getElementById("city-output");
+        var currencyoutput = document.getElementById("currency-output");
+        var currency = 50000;
+        var list = document.getElementById("ul");
+        var listbutton = document.getElementById("listbutton");
+        var superknapp1 = document.getElementById("superhelt1");
+        var superknapp2 = document.getElementById("superhelt2");
+        var superknapp3 = document.getElementById("superhelt3");
+        var superp = document.getElementById("supertekst");
+        var fact1 = "fakta 1";
+        var fact2 = "fakta 2";
+        var fact3 = "fakta 3";
+        var addisjon = document.getElementById("addisjon");
+        var divaddisj = document.getElementById("divaddisjon");
+        var maniacint = 0;
+        var maniacbutton = document.getElementById("maniacbutton");
+        var maniacdiv = document.getElementById("maniacdiv");
+
+        function addBuilding2(){
+            if (currency<5000){
+                alert("du har ikke råd");
+                return;
+            }
+            cityoutput.innerHTML += '<img src="images/1 (1).jpg" alt="">';
+            currency -= 5000;
+            showcurrency();
+        }
+        function addBuilding3(){
+            if (currency<15000){
+                alert("du har ikke råd");
+                return;
+            }
+            cityoutput.innerHTML += '<img src="images/1 (2).jpg" alt="">';
+            currency -= 15000;
+            showcurrency();
+        }
+        function addWarrior1(){
+            if (currency<10){
+                alert("du har ikke råd");
+                return;
+            }
+            cityoutput.innerHTML += `<img src="images/1 (3).jpg" alt="">`;
+            currency -= 10;
+            showcurrency();
+        }
+        function showcurrency(){
+            currencyoutput.innerHTML='<p>du har '+currency+' i din pung</p>'
+        }
+        function showtext1(){
+            superp.innerHTML = fact1;
+        }
+        function showtext2(){
+            superp.innerHTML = fact2;
+        }
+        function showtext3(){
+            superp.innerHTML = fact3;
+        }
+        function addCity(){
+            var by = prompt("legg til en by");
+            list.innerHTML += "<li>"+by+"</li>";
+        }
+        function addere(){
+            var tall1 =parseInt( prompt("første tall"));
+            var tall2 = parseInt(prompt("andre tall"));
+
+            divaddisj.innerHTML= tall1 + "+" + tall2 + "=" + (tall1+tall2);
+        }
+        function clickmaniac2(){
+            
+            if (maniacint >= 25){
+                maniacdiv.innerHTML = (maniacint+" over25!");
+            }
+            else if (maniacint >= 15){
+                maniacdiv.innerHTML = (maniacint+" over15!");
+            }
+            else if (maniacint >= 5){
+                maniacdiv.innerHTML = (maniacint+" over5!");
+            }
+            else {
+            maniacdiv.innerHTML = maniacint;}
+            maniacint += 1
+
+        }
+      
+      
+        addwarrior1btn.onmousemove = addWarrior1;
+        addbuilding2btn.onclick = addBuilding2;
+        listbutton.onclick = addCity;
+        addbuilding3btn.onclick = addBuilding3;
+        superknapp1.onclick = showtext1;
+        superknapp2.onclick = showtext2;
+        superknapp3.onclick = showtext3;
+        addisjon.onclick = addere;
+        maniacbutton.onclick = clickmaniac2;
+        showcurrency();
+        
+
+
+    </script>
+</body>
+</html>
